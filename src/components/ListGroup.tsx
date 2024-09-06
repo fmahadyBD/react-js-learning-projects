@@ -1,12 +1,18 @@
 function ListGroup() {
   //ctrl+d
 
-  const items = ["Dhaka", "Mymensigh", "Khulna", "Barishal", "Shellyt"];
+  let items = ["Dhaka", "Mymensigh", "Khulna", "Barishal", "Shellyt"];
+  items = [];
 
+  //   const getMessage = () => {
+  //     return items.length === 0 ? <p>Item is null</p> : null;
+  //   };
   return (
     // this is fragment
     <>
       <h1>List Group:</h1>
+      {/* {getMessage()} */}
+      {items.length === 0 && <p>Item is null</p>}
       <ul className="list-group">
         {/* <li className="list-group-item">An item</li>
         <li className="list-group-item">A second item</li>
