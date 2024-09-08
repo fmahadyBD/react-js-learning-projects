@@ -1,9 +1,17 @@
 import { MouseEvent, useState } from "react";
 
-function ListGroup() {
-  //ctrl+d
+//
 
-  let items = ["Dhaka", "Mymensigh", "Khulna", "Barishal", "Shellyt"];
+interface Props {
+  items: String[];
+  heading: String;
+}
+
+function ListGroup({ items, heading }: Props) {
+  //ctrl+d
+  //we passed those by app componends
+
+  // let items = ["Dhaka", "Mymensigh", "Khulna", "Barishal", "Shellyt"];
   //   items = [];
 
   //   const getMessage = () => {
@@ -19,7 +27,7 @@ function ListGroup() {
   return (
     // this is fragment
     <>
-      <h1>List Group:</h1>
+      <h1>{heading}</h1>
       {/* {getMessage()} */}
       {items.length === 0 && <p>Item is null</p>}
       <ul className="list-group">
@@ -36,7 +44,6 @@ function ListGroup() {
                 ? "list-group-item active"
                 : "list-group-item"
             }
-            key={item}
             onClick={() => setSelectIndex(index)}
           >
             {/* <li
