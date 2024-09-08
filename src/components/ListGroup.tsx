@@ -1,4 +1,4 @@
-import { MouseEvent } from "react";
+import { MouseEvent, useState } from "react";
 
 function ListGroup() {
   //ctrl+d
@@ -12,6 +12,10 @@ function ListGroup() {
 
   const handelClick = (event: MouseEvent) => console.log(event);
 
+  // let SelectIndex = 0;
+
+  //Hook
+  let [selectIndex, setSelectIndex] = useState(-1);
   return (
     // this is fragment
     <>
@@ -26,7 +30,20 @@ function ListGroup() {
         <li className="list-group-item">And a fifth one</li> */}
 
         {items.map((item, index) => (
-          <li className="list-group-item" key={item} onClick={handelClick}>
+          <li
+            className={
+              selectIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+            }
+            key={item}
+            onClick={() => setSelectIndex(index)}
+          >
+            {/* <li
+            className="list-group-item active"
+            key={item}
+            onClick={handelClick}
+          > */}
             {item}
           </li>
         ))}
