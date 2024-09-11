@@ -1,24 +1,13 @@
-// import Message from "./Message"
+import Button from "./components/Button";
 
-import ListGroup from "./components/ListGroup";
-
-ListGroup;
-//we passd parametter from here to ListGroup
-let items = ["ABX", "Mymensigh", "Khulna", "Barishal", "Shellyt"];
-const handleSelectItem = (item: String) => {
-  console.log(item);
-};
+Button;
 
 function App() {
   return (
     <div>
-      {/* <Message></Message> */}
-
-      <ListGroup
-        items={items}
-        heading={"Cites"}
-        onSelectedItem={handleSelectItem}
-      />
+      <Button color="secondary" onClick={() => console.log("hi")}>
+        My Button
+      </Button>
     </div>
   );
 }
