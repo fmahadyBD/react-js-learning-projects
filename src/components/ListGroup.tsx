@@ -5,9 +5,10 @@ import { MouseEvent, useState } from "react";
 interface Props {
   items: String[];
   heading: String;
+  onSelectedItem: (item: String) => void;
 }
-
-function ListGroup({ items, heading }: Props) {
+const handelClick = (event: MouseEvent) => console.log(event);
+function ListGroup({ items, heading, onSelectedItem }: Props) {
   //ctrl+d
   //we passed those by app componends
 
@@ -17,8 +18,6 @@ function ListGroup({ items, heading }: Props) {
   //   const getMessage = () => {
   //     return items.length === 0 ? <p>Item is null</p> : null;
   //   };
-
-  const handelClick = (event: MouseEvent) => console.log(event);
 
   // let SelectIndex = 0;
 
@@ -44,7 +43,10 @@ function ListGroup({ items, heading }: Props) {
                 ? "list-group-item active"
                 : "list-group-item"
             }
-            onClick={() => setSelectIndex(index)}
+            onClick={() => {
+              setSelectIndex(index);
+              onSelectedItem(item);
+            }}
           >
             {/* <li
             className="list-group-item active"
